@@ -6,12 +6,12 @@ Avaliação funcional do card **VZS-142**, versão **2.3.0**, com testes de API 
 
 ## Resultado mais recente
 
-A regressão final foi executada no PowerShell externo em **08/10/2026 às 18:59:18 (America/Manaus)**: **20 testes, 15 aprovados, 5 reprovados, 0 skipped e 0 flaky**, em 17,2 segundos. O relatório HTML local foi aberto e conferido visualmente, confirmando esses números. As cinco falhas são reproduções dos dois defeitos conhecidos, sem serem classificadas como erros da automação:
+A regressão final foi executada no PowerShell externo em **08/10/2026**: **20 testes, 15 aprovados, 5 reprovados, 0 skipped e 0 flaky**, em 17,2 segundos. O relatório HTML local foi aberto e conferido visualmente, confirmando esses números. As cinco falhas são reproduções dos dois defeitos conhecidos, sem serem classificadas como erros da automação:
 
 - **BUG-001 — frete no limite exato de R$ 200,00:** AUT-003-V2, AUT-003-V4 e AUT-006-V2.
 - **BUG-002 — mais de cinco unidades do mesmo produto aceitas pela API:** AUT-004-V2 e AUT-008.
 
-AUT-007-V1/V2 e AUT-008 foram incluídos na suíte ampliada. A data do resultado é 08/10/2026; o horário exato dessa regressão não foi preservado. Consulte [execução](docs/execucao.md) e [bugs](docs/bugs.md) para contexto e resultados históricos.
+AUT-007-V1/V2 e AUT-008 foram incluídos na suíte ampliada. A regressão mais recente ocorreu em 08/10/2026. Consulte [execução](docs/execucao.md) e [bugs](docs/bugs.md) para contexto e resultados históricos.
 
 ## Objetivo e estratégia
 
@@ -54,13 +54,13 @@ tests/
     validacoes.spec.ts
   helpers/api.ts
   ui/carrinho.spec.ts
-manual-stage5.cjs          # chamadas HTTP instrumentadas da etapa 5
-manual-ui-stage5.cjs       # interações instrumentadas da etapa 5
 playwright.config.ts
 package.json
 package-lock.json
 README.md
 ```
+
+Scripts auxiliares locais de execução manual são ignorados pelo Git e não fazem parte da entrega pública.
 
 ## Instalação e execução
 
