@@ -1,0 +1,41 @@
+{
+    "cenario":  "AUT-003-V3",
+    "titulo":  "AUT-003-V3: concede frete grátis acima de R$ 200,00",
+    "executadoEmUtc":  "2026-10-08T07:45:07.257Z",
+    "ambiente":  "Verzel Store QA - VZS-142 v2.3.0",
+    "projetoPlaywright":  "chromium",
+    "resultado":  "passed",
+    "requisicao":  {
+                       "method":  "POST",
+                       "path":  "/api/carrinho/calcular",
+                       "body":  {
+                                    "itens":  [
+                                                  {
+                                                      "produtoId":  "P007",
+                                                      "quantidade":  1
+                                                  }
+                                              ]
+                                }
+                   },
+    "resposta":  {
+                     "status":  200,
+                     "corpo":  {
+                                   "itens":  [
+                                                 {
+                                                     "produtoId":  "P007",
+                                                     "nome":  "Jaqueta Corta-Vento",
+                                                     "precoUnitario":  229.9,
+                                                     "quantidade":  1,
+                                                     "total":  229.9
+                                                 }
+                                             ],
+                                   "subtotal":  229.9,
+                                   "desconto":  0,
+                                   "frete":  0,
+                                   "freteGratis":  true,
+                                   "valorFaltanteFreteGratis":  0,
+                                   "total":  229.9,
+                                   "cupom":  null
+                               }
+                 }
+}

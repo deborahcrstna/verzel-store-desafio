@@ -1,0 +1,46 @@
+{
+    "cenario":  "AUT-001",
+    "titulo":  "AUT-001: BEMVINDO10 desconta 10% do subtotal de P001",
+    "executadoEmUtc":  "2026-10-08T07:29:29.553Z",
+    "ambiente":  "Verzel Store QA - VZS-142 v2.3.0",
+    "projetoPlaywright":  "chromium",
+    "resultado":  "passed",
+    "requisicao":  {
+                       "method":  "POST",
+                       "path":  "/api/carrinho/calcular",
+                       "body":  {
+                                    "itens":  [
+                                                  {
+                                                      "produtoId":  "P001",
+                                                      "quantidade":  1
+                                                  }
+                                              ],
+                                    "cupom":  "BEMVINDO10"
+                                }
+                   },
+    "resposta":  {
+                     "status":  200,
+                     "corpo":  {
+                                   "itens":  [
+                                                 {
+                                                     "produtoId":  "P001",
+                                                     "nome":  "Camiseta Essencial",
+                                                     "precoUnitario":  59.9,
+                                                     "quantidade":  1,
+                                                     "total":  59.9
+                                                 }
+                                             ],
+                                   "subtotal":  59.9,
+                                   "desconto":  5.99,
+                                   "frete":  19.9,
+                                   "freteGratis":  false,
+                                   "valorFaltanteFreteGratis":  140.1,
+                                   "total":  73.81,
+                                   "cupom":  {
+                                                 "codigo":  "BEMVINDO10",
+                                                 "aplicado":  true,
+                                                 "mensagem":  "Cupom aplicado: 10% de desconto nos produtos."
+                                             }
+                               }
+                 }
+}

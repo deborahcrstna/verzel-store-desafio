@@ -1,0 +1,20 @@
+{
+  "id": "MAN-006-V11",
+  "startedAt": "2026-10-08T08:58:23.713Z",
+  "environment": "Verzel Store QA VZS-142 v2.3.0",
+  "request": {
+    "method": "POST",
+    "path": "/api/carrinho/calcular",
+    "body": null
+  },
+  "response": {
+    "status": 400,
+    "contentType": "application/json; charset=utf-8",
+    "body": {
+      "erro": {
+        "codigo": "JSON_INVALIDO",
+        "mensagem": "O corpo da requisição deve ser um objeto JSON válido."
+      }
+    }
+  }
+}

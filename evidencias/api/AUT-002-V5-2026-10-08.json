@@ -1,0 +1,46 @@
+{
+    "cenario":  "AUT-002-V5",
+    "titulo":  "AUT-002 V5: aceita minúsculas e espaços nas extremidades",
+    "executadoEmUtc":  "2026-10-08T07:29:29.624Z",
+    "ambiente":  "Verzel Store QA - VZS-142 v2.3.0",
+    "projetoPlaywright":  "chromium",
+    "resultado":  "passed",
+    "requisicao":  {
+                       "method":  "POST",
+                       "path":  "/api/carrinho/calcular",
+                       "body":  {
+                                    "itens":  [
+                                                  {
+                                                      "produtoId":  "P005",
+                                                      "quantidade":  1
+                                                  }
+                                              ],
+                                    "cupom":  "  bemvindo10  "
+                                }
+                   },
+    "resposta":  {
+                     "status":  200,
+                     "corpo":  {
+                                   "itens":  [
+                                                 {
+                                                     "produtoId":  "P005",
+                                                     "nome":  "Mochila Urbana 20L",
+                                                     "precoUnitario":  100,
+                                                     "quantidade":  1,
+                                                     "total":  100
+                                                 }
+                                             ],
+                                   "subtotal":  100,
+                                   "desconto":  10,
+                                   "frete":  19.9,
+                                   "freteGratis":  false,
+                                   "valorFaltanteFreteGratis":  100,
+                                   "total":  109.9,
+                                   "cupom":  {
+                                                 "codigo":  "BEMVINDO10",
+                                                 "aplicado":  true,
+                                                 "mensagem":  "Cupom aplicado: 10% de desconto nos produtos."
+                                             }
+                               }
+                 }
+}

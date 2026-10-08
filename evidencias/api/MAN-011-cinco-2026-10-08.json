@@ -1,0 +1,51 @@
+{
+  "id": "MAN-011-cinco",
+  "startedAt": "2026-10-08T09:01:29.279Z",
+  "environment": "Verzel Store QA VZS-142 v2.3.0",
+  "request": {
+    "method": "POST",
+    "path": "/api/pedidos",
+    "body": {
+      "cliente": {
+        "nome": "Maria Silva",
+        "email": "maria@example.com",
+        "cep": "01310-100"
+      },
+      "itens": [
+        {
+          "produtoId": "P005",
+          "quantidade": 5
+        }
+      ]
+    }
+  },
+  "response": {
+    "status": 201,
+    "contentType": "application/json; charset=utf-8",
+    "body": {
+      "numero": "VZ-571969",
+      "criadoEm": "2026-10-08T09:01:29.015Z",
+      "cliente": {
+        "nome": "Maria Silva",
+        "email": "maria@example.com",
+        "cep": "01310100"
+      },
+      "itens": [
+        {
+          "produtoId": "P005",
+          "nome": "Mochila Urbana 20L",
+          "precoUnitario": 100,
+          "quantidade": 5,
+          "total": 500
+        }
+      ],
+      "subtotal": 500,
+      "desconto": 0,
+      "frete": 0,
+      "freteGratis": true,
+      "valorFaltanteFreteGratis": 0,
+      "total": 500,
+      "cupom": null
+    }
+  }
+}

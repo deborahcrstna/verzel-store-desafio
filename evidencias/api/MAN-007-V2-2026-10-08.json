@@ -1,0 +1,21 @@
+{
+  "id": "MAN-007-V2",
+  "startedAt": "2026-10-08T08:58:23.952Z",
+  "environment": "Verzel Store QA VZS-142 v2.3.0",
+  "request": {
+    "method": "GET",
+    "path": "/api/produtos/P005",
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "contentType": "application/json; charset=utf-8",
+    "body": {
+      "id": "P005",
+      "nome": "Mochila Urbana 20L",
+      "descricao": "Compartimento acolchoado para notebook.",
+      "categoria": "Acessórios",
+      "preco": 100
+    }
+  }
+}

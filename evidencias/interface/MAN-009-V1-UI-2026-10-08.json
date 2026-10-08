@@ -1,0 +1,50 @@
+{
+  "id": "MAN-009-V1-UI",
+  "observedAtUtc": "2026-10-08T09:02:16.868Z",
+  "url": "https://verzel-store.qa-test-verzel-store.workers.dev/pedido-confirmado",
+  "detail": {
+    "cep": "01310-100",
+    "coupon": false,
+    "request": {
+      "cliente": {
+        "nome": "Maria Silva",
+        "email": "maria@example.com",
+        "cep": "01310-100"
+      },
+      "itens": [
+        {
+          "produtoId": "P005",
+          "quantidade": 1
+        }
+      ]
+    },
+    "apiStatus": 201,
+    "apiResponse": {
+      "numero": "VZ-836432",
+      "criadoEm": "2026-10-08T09:02:16.450Z",
+      "cliente": {
+        "nome": "Maria Silva",
+        "email": "maria@example.com",
+        "cep": "01310100"
+      },
+      "itens": [
+        {
+          "produtoId": "P005",
+          "nome": "Mochila Urbana 20L",
+          "precoUnitario": 100,
+          "quantidade": 1,
+          "total": 100
+        }
+      ],
+      "subtotal": 100,
+      "desconto": 0,
+      "frete": 19.9,
+      "freteGratis": false,
+      "valorFaltanteFreteGratis": 100,
+      "total": 119.9,
+      "cupom": null
+    }
+  },
+  "snapshot": "- main:\n  - paragraph: Pedido confirmado\n  - heading \"Pedido VZ-836432\" [level=1]\n  - paragraph: Obrigado, Maria. Seu pedido foi registrado e o pagamento será feito na entrega.\n  - region \"Itens do pedido\":\n    - heading \"Itens do pedido\" [level=2]\n    - term: Subtotal\n    - definition: R$ 100,00\n    - term: Desconto\n    - definition: R$ 0,00\n    - term: Frete\n    - definition: R$ 19,90\n    - term: Total\n    - definition: R$ 119,90\n    - list:\n      - listitem: 1x Mochila Urbana 20L R$ 100,00\n  - link \"Continuar comprando\":\n    - /url: /",
+  "screenshot": "evidencias/interface/MAN-009-V1-UI-2026-10-08.png"
+}

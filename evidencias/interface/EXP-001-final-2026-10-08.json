@@ -1,0 +1,14 @@
+{
+  "id": "EXP-001-final",
+  "observedAtUtc": "2026-10-08T09:03:05.099Z",
+  "url": "https://verzel-store.qa-test-verzel-store.workers.dev/carrinho",
+  "detail": {
+    "flows": [
+      "P005 x1, aplicar BEMVINDO10 antes de aumentar a quantidade",
+      "Remover cupom com P005 x2; depois reduzir para x1",
+      "Adicionar P006 após reduzir P005 e conferir novo subtotal/frete"
+    ]
+  },
+  "snapshot": "- main:\n  - heading \"Carrinho\" [level=1]\n  - button \"Esvaziar carrinho\"\n  - list:\n    - listitem:\n      - heading \"Mochila Urbana 20L\" [level=3]\n      - paragraph: R$ 100,00 cada\n      - group \"Quantidade de Mochila Urbana 20L\":\n        - button \"Diminuir quantidade de Mochila Urbana 20L\" [disabled]: \"-\"\n        - status \"Quantidade de Mochila Urbana 20L\": \"1\"\n        - button \"Aumentar quantidade de Mochila Urbana 20L\": +\n      - paragraph: R$ 100,00\n      - button \"Remover Mochila Urbana 20L do carrinho\": Remover\n    - listitem:\n      - heading \"Kit 3 Pares de Meias\" [level=3]\n      - paragraph: R$ 29,90 cada\n      - group \"Quantidade de Kit 3 Pares de Meias\":\n        - button \"Diminuir quantidade de Kit 3 Pares de Meias\" [disabled]: \"-\"\n        - status \"Quantidade de Kit 3 Pares de Meias\": \"1\"\n        - button \"Aumentar quantidade de Kit 3 Pares de Meias\": +\n      - paragraph: R$ 29,90\n      - button \"Remover Kit 3 Pares de Meias do carrinho\": Remover\n  - text: Cupom de desconto\n  - textbox \"Cupom de desconto\"\n  - button \"Aplicar cupom\"\n  - region \"Resumo do pedido\":\n    - heading \"Resumo do pedido\" [level=2]\n    - term: Subtotal\n    - definition: R$ 129,90\n    - term: Desconto\n    - definition: R$ 0,00\n    - term: Frete\n    - definition: R$ 19,90\n    - term: Total\n    - definition: R$ 149,80\n    - paragraph: Faltam R$ 70,10 para o frete grátis.\n    - link \"Finalizar compra\":\n      - /url: /checkout",
+  "screenshot": "evidencias/interface/EXP-001-final-2026-10-08.png"
+}

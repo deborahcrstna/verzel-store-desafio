@@ -1,0 +1,38 @@
+{
+  "id": "MAN-008-V7-API",
+  "startedAt": "2026-10-08T09:01:28.720Z",
+  "environment": "Verzel Store QA VZS-142 v2.3.0",
+  "request": {
+    "method": "POST",
+    "path": "/api/pedidos",
+    "body": {
+      "cliente": {
+        "nome": "Maria Silva",
+        "email": "maria@example.com",
+        "cep": "013101000"
+      },
+      "itens": [
+        {
+          "produtoId": "P005",
+          "quantidade": 1
+        }
+      ]
+    }
+  },
+  "response": {
+    "status": 422,
+    "contentType": "application/json; charset=utf-8",
+    "body": {
+      "erro": {
+        "codigo": "DADOS_INVALIDOS",
+        "mensagem": "Existem campos inválidos no pedido.",
+        "campos": [
+          {
+            "campo": "cliente.cep",
+            "mensagem": "Informe um CEP com 8 dígitos."
+          }
+        ]
+      }
+    }
+  }
+}

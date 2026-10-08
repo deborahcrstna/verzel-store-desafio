@@ -1,0 +1,20 @@
+{
+  "id": "MAN-007-V3",
+  "startedAt": "2026-10-08T08:58:24.042Z",
+  "environment": "Verzel Store QA VZS-142 v2.3.0",
+  "request": {
+    "method": "GET",
+    "path": "/api/produtos/P999",
+    "body": null
+  },
+  "response": {
+    "status": 404,
+    "contentType": "application/json; charset=utf-8",
+    "body": {
+      "erro": {
+        "codigo": "PRODUTO_NAO_ENCONTRADO",
+        "mensagem": "Produto P999 não encontrado."
+      }
+    }
+  }
+}

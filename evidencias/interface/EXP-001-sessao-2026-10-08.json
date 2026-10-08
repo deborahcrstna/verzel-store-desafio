@@ -1,0 +1,14 @@
+{
+  "session": "EXP-001",
+  "startedAtUtc": "2026-10-08T09:03:03.432Z",
+  "endedAtUtc": "2026-10-08T09:03:05.120Z",
+  "durationSeconds": 1.688,
+  "flows": [
+    "P005 x1, aplicar BEMVINDO10 antes de aumentar a quantidade",
+    "Remover cupom com P005 x2; depois reduzir para x1",
+    "Adicionar P006 após reduzir P005 e conferir novo subtotal/frete"
+  ],
+  "observations": [
+    "No subtotal exato 200 com cupom, frete 19,90 e total 199,90: BUG-001 conhecido."
+  ]
+}

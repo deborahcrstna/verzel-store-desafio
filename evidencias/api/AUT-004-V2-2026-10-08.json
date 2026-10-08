@@ -1,0 +1,41 @@
+{
+    "cenario":  "AUT-004-V2",
+    "titulo":  "AUT-004-V2: rejeita seis unidades de P006",
+    "executadoEmUtc":  "2026-10-08T07:45:07.341Z",
+    "ambiente":  "Verzel Store QA - VZS-142 v2.3.0",
+    "projetoPlaywright":  "chromium",
+    "resultado":  "failed",
+    "requisicao":  {
+                       "method":  "POST",
+                       "path":  "/api/carrinho/calcular",
+                       "body":  {
+                                    "itens":  [
+                                                  {
+                                                      "produtoId":  "P006",
+                                                      "quantidade":  6
+                                                  }
+                                              ]
+                                }
+                   },
+    "resposta":  {
+                     "status":  200,
+                     "corpo":  {
+                                   "itens":  [
+                                                 {
+                                                     "produtoId":  "P006",
+                                                     "nome":  "Kit 3 Pares de Meias",
+                                                     "precoUnitario":  29.9,
+                                                     "quantidade":  6,
+                                                     "total":  179.4
+                                                 }
+                                             ],
+                                   "subtotal":  179.4,
+                                   "desconto":  0,
+                                   "frete":  19.9,
+                                   "freteGratis":  false,
+                                   "valorFaltanteFreteGratis":  20.6,
+                                   "total":  199.3,
+                                   "cupom":  null
+                               }
+                 }
+}

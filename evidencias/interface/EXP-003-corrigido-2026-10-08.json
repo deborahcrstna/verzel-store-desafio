@@ -1,0 +1,12 @@
+{
+  "id": "EXP-003-corrigido",
+  "observedAtUtc": "2026-10-08T09:03:22.651Z",
+  "url": "https://verzel-store.qa-test-verzel-store.workers.dev/checkout",
+  "detail": {
+    "flows": [
+      "Corrigir sequencialmente nome, e-mail e CEP; parar antes da confirmação válida"
+    ]
+  },
+  "snapshot": "- main:\n  - heading \"Finalizar compra\" [level=1]\n  - link \"Voltar ao carrinho\":\n    - /url: /carrinho\n  - heading \"Dados para entrega\" [level=2]\n  - text: Nome completo\n  - textbox \"Nome completo\": Maria Silva\n  - text: E-mail\n  - textbox \"E-mail\": maria@example.com\n  - text: CEP\n  - textbox \"CEP\" [invalid]: \"01310100\"\n  - paragraph: Somente números ou no formato 00000-000.\n  - paragraph: Informe um CEP com 8 dígitos.\n  - paragraph: O pagamento é feito na entrega.\n  - button \"Confirmar pedido\"\n  - region \"Resumo do pedido\":\n    - heading \"Resumo do pedido\" [level=2]\n    - term: Subtotal\n    - definition: R$ 100,00\n    - term: Desconto\n    - definition: R$ 0,00\n    - term: Frete\n    - definition: R$ 19,90\n    - term: Total\n    - definition: R$ 119,90\n    - list:\n      - listitem: 1x Mochila Urbana 20L R$ 100,00",
+  "screenshot": "evidencias/interface/EXP-003-corrigido-2026-10-08.png"
+}

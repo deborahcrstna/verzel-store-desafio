@@ -1,0 +1,44 @@
+{
+  "id": "MAN-001-API",
+  "startedAt": "2026-10-08T08:58:22.019Z",
+  "environment": "Verzel Store QA VZS-142 v2.3.0",
+  "request": {
+    "method": "POST",
+    "path": "/api/carrinho/calcular",
+    "body": {
+      "itens": [
+        {
+          "produtoId": "P005",
+          "quantidade": 1
+        }
+      ],
+      "cupom": "NAOEXISTE142"
+    }
+  },
+  "response": {
+    "status": 200,
+    "contentType": "application/json; charset=utf-8",
+    "body": {
+      "itens": [
+        {
+          "produtoId": "P005",
+          "nome": "Mochila Urbana 20L",
+          "precoUnitario": 100,
+          "quantidade": 1,
+          "total": 100
+        }
+      ],
+      "subtotal": 100,
+      "desconto": 0,
+      "frete": 19.9,
+      "freteGratis": false,
+      "valorFaltanteFreteGratis": 100,
+      "total": 119.9,
+      "cupom": {
+        "codigo": "NAOEXISTE142",
+        "aplicado": false,
+        "mensagem": "Cupom inválido."
+      }
+    }
+  }
+}

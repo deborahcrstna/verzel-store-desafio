@@ -1,0 +1,34 @@
+{
+  "id": "MAN-010-expirado",
+  "startedAt": "2026-10-08T09:01:29.221Z",
+  "environment": "Verzel Store QA VZS-142 v2.3.0",
+  "request": {
+    "method": "POST",
+    "path": "/api/pedidos",
+    "body": {
+      "cliente": {
+        "nome": "Maria Silva",
+        "email": "maria@example.com",
+        "cep": "01310-100"
+      },
+      "itens": [
+        {
+          "produtoId": "P005",
+          "quantidade": 1
+        }
+      ],
+      "cupom": "VERAO2026"
+    }
+  },
+  "response": {
+    "status": 422,
+    "contentType": "application/json; charset=utf-8",
+    "body": {
+      "erro": {
+        "codigo": "CUPOM_EXPIRADO",
+        "mensagem": "Cupom expirado.",
+        "campo": "cupom"
+      }
+    }
+  }
+}

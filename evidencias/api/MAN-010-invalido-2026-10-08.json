@@ -1,0 +1,34 @@
+{
+  "id": "MAN-010-invalido",
+  "startedAt": "2026-10-08T09:01:29.165Z",
+  "environment": "Verzel Store QA VZS-142 v2.3.0",
+  "request": {
+    "method": "POST",
+    "path": "/api/pedidos",
+    "body": {
+      "cliente": {
+        "nome": "Maria Silva",
+        "email": "maria@example.com",
+        "cep": "01310-100"
+      },
+      "itens": [
+        {
+          "produtoId": "P005",
+          "quantidade": 1
+        }
+      ],
+      "cupom": "NAOEXISTE142"
+    }
+  },
+  "response": {
+    "status": 422,
+    "contentType": "application/json; charset=utf-8",
+    "body": {
+      "erro": {
+        "codigo": "CUPOM_INVALIDO",
+        "mensagem": "Cupom inválido.",
+        "campo": "cupom"
+      }
+    }
+  }
+}

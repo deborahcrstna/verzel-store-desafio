@@ -1,0 +1,11 @@
+{
+  "id": "MAN-005-UI",
+  "observedAtUtc": "2026-10-08T09:00:00.708Z",
+  "url": "https://verzel-store.qa-test-verzel-store.workers.dev/carrinho",
+  "detail": {
+    "products": "P002 x1 + P004 x2",
+    "code": "BEMVINDO10"
+  },
+  "snapshot": "- main:\n  - heading \"Carrinho\" [level=1]\n  - button \"Esvaziar carrinho\"\n  - list:\n    - listitem:\n      - heading \"Calça Jeans Slim\" [level=3]\n      - paragraph: R$ 139,90 cada\n      - group \"Quantidade de Calça Jeans Slim\":\n        - button \"Diminuir quantidade de Calça Jeans Slim\" [disabled]: \"-\"\n        - status \"Quantidade de Calça Jeans Slim\": \"1\"\n        - button \"Aumentar quantidade de Calça Jeans Slim\": +\n      - paragraph: R$ 139,90\n      - button \"Remover Calça Jeans Slim do carrinho\": Remover\n    - listitem:\n      - heading \"Boné Aba Curva\" [level=3]\n      - paragraph: R$ 49,90 cada\n      - group \"Quantidade de Boné Aba Curva\":\n        - button \"Diminuir quantidade de Boné Aba Curva\": \"-\"\n        - status \"Quantidade de Boné Aba Curva\": \"2\"\n        - button \"Aumentar quantidade de Boné Aba Curva\": +\n      - paragraph: R$ 99,80\n      - button \"Remover Boné Aba Curva do carrinho\": Remover\n  - paragraph:\n    - text: Cupom\n    - strong: BEMVINDO10\n    - text: aplicado.\n  - button \"Remover cupom\"\n  - region \"Resumo do pedido\":\n    - heading \"Resumo do pedido\" [level=2]\n    - term: Subtotal\n    - definition: R$ 239,70\n    - term: Desconto (BEMVINDO10)\n    - definition: \"- R$ 23,97\"\n    - term: Frete\n    - definition: Grátis\n    - term: Total\n    - definition: R$ 215,73\n    - link \"Finalizar compra\":\n      - /url: /checkout",
+  "screenshot": "evidencias/interface/MAN-005-UI-2026-10-08.png"
+}

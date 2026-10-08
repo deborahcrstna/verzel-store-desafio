@@ -1,0 +1,12 @@
+{
+  "session": "EXP-003",
+  "startedAtUtc": "2026-10-08T09:03:21.104Z",
+  "endedAtUtc": "2026-10-08T09:03:22.670Z",
+  "durationSeconds": 1.566,
+  "flows": [
+    "Corrigir sequencialmente nome, e-mail e CEP; parar antes da confirmação válida"
+  ],
+  "observations": [
+    "Formulário permaneceu no checkout durante rejeições; campos foram corrigidos antes de confirmar."
+  ]
+}

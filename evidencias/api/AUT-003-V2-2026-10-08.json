@@ -1,0 +1,41 @@
+{
+    "cenario":  "AUT-003-V2",
+    "titulo":  "AUT-003-V2: concede frete grátis no subtotal exato de R$ 200,00",
+    "executadoEmUtc":  "2026-10-08T07:45:07.233Z",
+    "ambiente":  "Verzel Store QA - VZS-142 v2.3.0",
+    "projetoPlaywright":  "chromium",
+    "resultado":  "failed",
+    "requisicao":  {
+                       "method":  "POST",
+                       "path":  "/api/carrinho/calcular",
+                       "body":  {
+                                    "itens":  [
+                                                  {
+                                                      "produtoId":  "P005",
+                                                      "quantidade":  2
+                                                  }
+                                              ]
+                                }
+                   },
+    "resposta":  {
+                     "status":  200,
+                     "corpo":  {
+                                   "itens":  [
+                                                 {
+                                                     "produtoId":  "P005",
+                                                     "nome":  "Mochila Urbana 20L",
+                                                     "precoUnitario":  100,
+                                                     "quantidade":  2,
+                                                     "total":  200
+                                                 }
+                                             ],
+                                   "subtotal":  200,
+                                   "desconto":  0,
+                                   "frete":  19.9,
+                                   "freteGratis":  false,
+                                   "valorFaltanteFreteGratis":  0,
+                                   "total":  219.9,
+                                   "cupom":  null
+                               }
+                 }
+}

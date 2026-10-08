@@ -1,0 +1,55 @@
+{
+  "id": "MAN-005-API",
+  "startedAt": "2026-10-08T08:58:22.772Z",
+  "environment": "Verzel Store QA VZS-142 v2.3.0",
+  "request": {
+    "method": "POST",
+    "path": "/api/carrinho/calcular",
+    "body": {
+      "itens": [
+        {
+          "produtoId": "P002",
+          "quantidade": 1
+        },
+        {
+          "produtoId": "P004",
+          "quantidade": 2
+        }
+      ],
+      "cupom": "BEMVINDO10"
+    }
+  },
+  "response": {
+    "status": 200,
+    "contentType": "application/json; charset=utf-8",
+    "body": {
+      "itens": [
+        {
+          "produtoId": "P002",
+          "nome": "Calça Jeans Slim",
+          "precoUnitario": 139.9,
+          "quantidade": 1,
+          "total": 139.9
+        },
+        {
+          "produtoId": "P004",
+          "nome": "Boné Aba Curva",
+          "precoUnitario": 49.9,
+          "quantidade": 2,
+          "total": 99.8
+        }
+      ],
+      "subtotal": 239.7,
+      "desconto": 23.97,
+      "frete": 0,
+      "freteGratis": true,
+      "valorFaltanteFreteGratis": 0,
+      "total": 215.73,
+      "cupom": {
+        "codigo": "BEMVINDO10",
+        "aplicado": true,
+        "mensagem": "Cupom aplicado: 10% de desconto nos produtos."
+      }
+    }
+  }
+}

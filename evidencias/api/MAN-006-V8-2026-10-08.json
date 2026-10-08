@@ -1,0 +1,28 @@
+{
+  "id": "MAN-006-V8",
+  "startedAt": "2026-10-08T08:58:23.487Z",
+  "environment": "Verzel Store QA VZS-142 v2.3.0",
+  "request": {
+    "method": "POST",
+    "path": "/api/carrinho/calcular",
+    "body": {
+      "itens": [
+        {
+          "produtoId": "P005",
+          "quantidade": -1
+        }
+      ]
+    }
+  },
+  "response": {
+    "status": 422,
+    "contentType": "application/json; charset=utf-8",
+    "body": {
+      "erro": {
+        "codigo": "QUANTIDADE_INVALIDA",
+        "mensagem": "A quantidade deve ser um número inteiro maior ou igual a 1.",
+        "campo": "itens[0].quantidade"
+      }
+    }
+  }
+}

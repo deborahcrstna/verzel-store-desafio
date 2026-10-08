@@ -1,0 +1,20 @@
+# Dependências
+node_modules/
+
+# Artefatos temporários do Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+
+# Ambiente local e logs
+.env
+.env.*
+!.env.example
+/*.log
+
+# docs/ e evidencias/ são entregáveis e devem ser versionados.
+!/evidencias/**
+/manual-stage5.cjs
+/manual-ui-stage5.cjs

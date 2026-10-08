@@ -1,0 +1,52 @@
+{
+    "cenario":  "AUT-003-V1",
+    "titulo":  "AUT-003-V1: cobra frete abaixo de R$ 200,00",
+    "executadoEmUtc":  "2026-10-08T07:45:07.259Z",
+    "ambiente":  "Verzel Store QA - VZS-142 v2.3.0",
+    "projetoPlaywright":  "chromium",
+    "resultado":  "passed",
+    "requisicao":  {
+                       "method":  "POST",
+                       "path":  "/api/carrinho/calcular",
+                       "body":  {
+                                    "itens":  [
+                                                  {
+                                                      "produtoId":  "P001",
+                                                      "quantidade":  1
+                                                  },
+                                                  {
+                                                      "produtoId":  "P002",
+                                                      "quantidade":  1
+                                                  }
+                                              ]
+                                }
+                   },
+    "resposta":  {
+                     "status":  200,
+                     "corpo":  {
+                                   "itens":  [
+                                                 {
+                                                     "produtoId":  "P001",
+                                                     "nome":  "Camiseta Essencial",
+                                                     "precoUnitario":  59.9,
+                                                     "quantidade":  1,
+                                                     "total":  59.9
+                                                 },
+                                                 {
+                                                     "produtoId":  "P002",
+                                                     "nome":  "Calça Jeans Slim",
+                                                     "precoUnitario":  139.9,
+                                                     "quantidade":  1,
+                                                     "total":  139.9
+                                                 }
+                                             ],
+                                   "subtotal":  199.8,
+                                   "desconto":  0,
+                                   "frete":  19.9,
+                                   "freteGratis":  false,
+                                   "valorFaltanteFreteGratis":  0.2,
+                                   "total":  219.7,
+                                   "cupom":  null
+                               }
+                 }
+}

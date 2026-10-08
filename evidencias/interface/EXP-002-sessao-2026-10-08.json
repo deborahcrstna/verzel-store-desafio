@@ -1,0 +1,14 @@
+{
+  "session": "EXP-002",
+  "startedAtUtc": "2026-10-08T09:03:13.201Z",
+  "endedAtUtc": "2026-10-08T09:03:14.964Z",
+  "durationSeconds": 1.763,
+  "flows": [
+    "Cupom inexistente e correção no mesmo campo",
+    "Remover cupom válido e aplicar expirado",
+    "Com cupom expirado, aumentar P005 até cinco unidades"
+  ],
+  "observations": [
+    "Um único cupom válido ficou aplicado após correção; expirado não gerou desconto; controle de quantidade desabilitado em cinco."
+  ]
+}
