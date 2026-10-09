@@ -2,9 +2,13 @@
 
 ## Situação atual
 
-A regressão final foi executada no PowerShell externo em **08/10/2026 às 18:59:18 (America/Manaus)**: **20 testes, 15 passaram, cinco falharam, zero skipped e zero flaky**, com duração de 17,2 segundos. AUT-003-V2, AUT-003-V4 e AUT-006-V2 reproduzem BUG-001; AUT-004-V2 e AUT-008 reproduzem BUG-002. AUT-007-V1/V2 passaram. As cinco falhas são divergências observadas da aplicação em relação aos requisitos, não erros da automação. O relatório HTML local foi conferido visualmente e confirma a contagem; como `playwright-report/` é ignorado pelo Git, ele não será disponibilizado no repositório público. Os detalhes da execução instrumentada manual/exploratória estão em [execucao-etapa5.md](execucao-etapa5.md); não equivalem a uma avaliação humana independente.
+A regressão de referência foi iniciada no PowerShell externo em **09/10/2026 às 01:04 (America/Manaus; `2026-10-09T05:04:18.393Z`)**: **20 testes, 15 aprovados, 5 reprovados, 0 ignorados e 0 flaky**. O JSON da execução confirma as contagens; o HTML correspondente foi conferido localmente. Os relatórios estão em diretório exclusivo sob `playwright-report/execucoes/`, ignorado pelo Git, e não são disponibilizados pelo repositório. AUT-003-V2, AUT-003-V4 e AUT-006-V2 reproduziram BUG-001; AUT-004-V2 e AUT-008 reproduziram BUG-002. AUT-007-V1/V2 passaram. As cinco falhas são divergências observadas da aplicação em relação aos requisitos, não erros da automação. As sessões da etapa 5 em [execucao-etapa5.md](execucao-etapa5.md) foram instrumentadas e não equivalem a uma avaliação humana independente; o registro independente de MEL-001 está abaixo.
 
-### Última regressão automatizada — 08/10/2026, 18:59:18 (America/Manaus)
+## Exploração manual independente — MEL-001
+
+Conforme relato da candidata, foi realizado manualmente na interface, sem execução pelo Codex ou Playwright neste cenário. Data e horário não informados. No checkout, o CEP `00000-000` foi aceito e o pedido `VZ-907297` foi confirmado. Valores observados: subtotal R$ 439,60, cupom BEMVINDO10, desconto R$ 43,96, frete grátis e total R$ 395,64. A observação está classificada como sugestão de melhoria/possível lacuna de requisito, não como bug confirmado; ver [MEL-001](bugs.md#mel-001--validação-de-existência-do-cep-no-checkout) e [EXP-004](cenarios-de-teste.md#exp-004--cep-zerado-aceito-no-checkout-ui-manual-mel-001). As capturas são [checkout com CEP informado](../evidencias/interface/mel-001-checkout-cep-zerado.png) e [pedido confirmado](../evidencias/interface/mel-001-pedido-confirmado.png).
+
+### Regressão de referência — 09/10/2026, 01:04 (America/Manaus)
 
 | Resultado | Testes |
 | --- | --- |
@@ -13,11 +17,15 @@ A regressão final foi executada no PowerShell externo em **08/10/2026 às 18:59
 | Falharam | 5 |
 | Skipped | 0 |
 | Flaky | 0 |
-| Duração | 17,2 segundos |
+| Início UTC | 2026-10-09T05:04:18.393Z |
 | BUG-001 | AUT-003-V2, AUT-003-V4, AUT-006-V2 |
 | BUG-002 | AUT-004-V2, AUT-008 |
 
-A regressão confirmou os dois defeitos já registrados. AUT-008 recebeu HTTP 201 para seis unidades em `POST /api/pedidos`, embora o esperado documentado seja HTTP 422 com `QUANTIDADE_MAXIMA_EXCEDIDA`. AUT-007-V1/V2 retornaram os valores e mensagens esperados para cupom inexistente/expirado. O contexto detalhado do AUT-008 e o último resumo do Playwright estão em `test-results/etapa2-20261008-01/`, pasta temporária ignorada pelo Git; não foi criado um novo arquivo de evidência versionado para essa regressão.
+AUT-008 recebeu HTTP 201 para seis unidades em `POST /api/pedidos`, embora o esperado documentado seja HTTP 422 com `QUANTIDADE_MAXIMA_EXCEDIDA`. AUT-007-V1/V2 retornaram os valores e mensagens esperados para cupom inexistente/expirado. O relatório JSON e o HTML desta execução foram conferidos no ambiente local, mas permanecem ignorados pelo Git. O antigo caminho temporário citado para o contexto de AUT-008 (`test-results/etapa2-20261008-01/`) não existe no workspace atual e, portanto, não é apresentado como evidência disponível. A reprodução assistida MAN-011, com cinco unidades como controle e duas tentativas com seis, possui registros duráveis em `evidencias/api/MAN-011-cinco-2026-10-08.json`, `evidencias/api/MAN-011-seis-2026-10-08.json` e `evidencias/api/MAN-011-seis-reteste-2026-10-08.json`.
+
+### Execução anterior — 08/10/2026, 18:59:18 (America/Manaus)
+
+Uma execução anterior também registrou 20 testes, 15 aprovados, 5 reprovados, 0 ignorados e 0 flaky, com duração documentada de 17,2 segundos. As falhas foram AUT-003-V2, AUT-003-V4, AUT-006-V2, AUT-004-V2 e AUT-008, associadas respectivamente a BUG-001 e BUG-002. O HTML dessa execução foi conferido no ambiente local à época e não está publicado. A execução de 09/10/2026, acima, é a referência final mais recente.
 
 ## Execução assistida — etapa 5, 08/10/2026 (America/Manaus)
 
@@ -71,7 +79,7 @@ Os oito registros abaixo foram conferidos no disco antes da inclusão dos links.
 | AUT-003-V3 | PASSOU — HTTP 200; P007 ×1, subtotal e total 229,90, frete grátis | [Requisição e resposta AUT-003-V3](../evidencias/api/AUT-003-V3-2026-10-08.json) |
 | AUT-004-V1 | PASSOU — HTTP 200; P006 ×5, subtotal 149,50, frete 19,90, total 169,40 | [Requisição e resposta AUT-004-V1](../evidencias/api/AUT-004-V1-2026-10-08.json) |
 
-O relatório `playwright-report/index.html` da regressão acima foi aberto e conferido visualmente; seus números são 20 testes, 15 aprovados, 5 reprovados, 0 skipped e 0 flaky. O arquivo permanece apenas no ambiente local, ignorado pelo Git, e não será disponibilizado no repositório público. As evidências versionáveis por cenário permanecem nos links desta seção e nos registros históricos abaixo.
+O relatório `playwright-report/index.html` citado no registro histórico de 08/10/2026 era um artefato local daquela etapa e não é distribuído pelo repositório. A regressão de referência de 09/10/2026 usa relatórios em uma pasta exclusiva sob `playwright-report/execucoes/`; esses arquivos também são locais e ignorados pelo Git. As evidências versionáveis por cenário permanecem nos links desta seção e nos registros históricos abaixo.
 
 ## Controle consolidado dos cenários
 
@@ -81,7 +89,7 @@ Os resultados abaixo refletem os registros mais recentes disponíveis. A descri�
 | --- | --- | --- |
 | AUT-001–AUT-006 | 13 aprovados, 4 reprovados no marco da etapa 4 (17 testes) | Falhas então observadas: AUT-003-V2/V4, AUT-004-V2 e AUT-006-V2. |
 | AUT-007-V1/V2 | 2 aprovados | Códigos e mensagens do cálculo registrados em MAN-001/MAN-002; resultado automatizado resumido acima. |
-| AUT-008 | Reprovado — BUG-002 | HTTP 201 para seis unidades em POST /api/pedidos; contexto temporário em test-results/. |
+| AUT-008 | Reprovado — BUG-002 | HTTP 201 para seis unidades em POST /api/pedidos; a resposta temporária não está disponível no workspace. MAN-011 preserva reproduções assistidas em evidências duráveis. |
 | Regressão automatizada consolidada | 20 testes: 15 aprovados, 5 reprovados | Reprovados: AUT-003-V2/V4, AUT-004-V2, AUT-006-V2 e AUT-008. |
 | MAN-001–MAN-010, MAN-012 | Passaram conforme variantes registradas | Execução assistida/instrumentada por Codex; detalhes, datas, resultados e evidências em execucao-etapa5.md. |
 | MAN-011 | Cinco unidades passou; seis unidades falhou em duas tentativas (BUG-002) | [Primeira execução](../evidencias/api/MAN-011-seis-2026-10-08.json), [reteste](../evidencias/api/MAN-011-seis-reteste-2026-10-08.json). |

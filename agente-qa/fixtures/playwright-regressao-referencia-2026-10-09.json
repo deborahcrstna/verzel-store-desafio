@@ -1,0 +1,342 @@
+{
+  "stats": {
+    "startTime": "2026-10-09T05:04:18.393Z",
+    "duration": 17979.332,
+    "expected": 15,
+    "unexpected": 5,
+    "skipped": 0,
+    "flaky": 0
+  },
+  "suites": [
+    {
+      "title": "tests/api/cupons.spec.ts",
+      "specs": [
+        {
+          "title": "AUT-001",
+          "file": "tests/api/cupons.spec.ts",
+          "tests": [
+            {
+              "projectName": "chromium",
+              "results": [
+                {
+                  "status": "passed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "AUT-002-V1",
+          "file": "tests/api/cupons.spec.ts",
+          "tests": [
+            {
+              "projectName": "chromium",
+              "results": [
+                {
+                  "status": "passed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "AUT-002-V2",
+          "file": "tests/api/cupons.spec.ts",
+          "tests": [
+            {
+              "projectName": "chromium",
+              "results": [
+                {
+                  "status": "passed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "AUT-002-V3",
+          "file": "tests/api/cupons.spec.ts",
+          "tests": [
+            {
+              "projectName": "chromium",
+              "results": [
+                {
+                  "status": "passed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "AUT-002-V4",
+          "file": "tests/api/cupons.spec.ts",
+          "tests": [
+            {
+              "projectName": "chromium",
+              "results": [
+                {
+                  "status": "passed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "AUT-002-V5",
+          "file": "tests/api/cupons.spec.ts",
+          "tests": [
+            {
+              "projectName": "chromium",
+              "results": [
+                {
+                  "status": "passed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "AUT-007-V1",
+          "file": "tests/api/cupons.spec.ts",
+          "tests": [
+            {
+              "projectName": "chromium",
+              "results": [
+                {
+                  "status": "passed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "AUT-007-V2",
+          "file": "tests/api/cupons.spec.ts",
+          "tests": [
+            {
+              "projectName": "chromium",
+              "results": [
+                {
+                  "status": "passed"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests/api/frete.spec.ts",
+      "specs": [
+        {
+          "title": "AUT-003-V1",
+          "file": "tests/api/frete.spec.ts",
+          "tests": [
+            {
+              "projectName": "chromium",
+              "results": [
+                {
+                  "status": "passed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "AUT-003-V2",
+          "file": "tests/api/frete.spec.ts",
+          "tests": [
+            {
+              "projectName": "chromium",
+              "results": [
+                {
+                  "status": "failed",
+                  "errors": [
+                    {
+                      "message": "Error: expect(received).toBe(expected)\\n\\nExpected: 0\\nReceived: 19.9"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "AUT-003-V3",
+          "file": "tests/api/frete.spec.ts",
+          "tests": [
+            {
+              "projectName": "chromium",
+              "results": [
+                {
+                  "status": "passed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "AUT-003-V4",
+          "file": "tests/api/frete.spec.ts",
+          "tests": [
+            {
+              "projectName": "chromium",
+              "results": [
+                {
+                  "status": "failed",
+                  "errors": [
+                    {
+                      "message": "Error: expect(received).toBe(expected)\\n\\nExpected: 0\\nReceived: 19.9"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "AUT-003-V5",
+          "file": "tests/api/frete.spec.ts",
+          "tests": [
+            {
+              "projectName": "chromium",
+              "results": [
+                {
+                  "status": "passed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "AUT-003-V6",
+          "file": "tests/api/frete.spec.ts",
+          "tests": [
+            {
+              "projectName": "chromium",
+              "results": [
+                {
+                  "status": "passed"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests/api/validacoes.spec.ts",
+      "specs": [
+        {
+          "title": "AUT-004-V1",
+          "file": "tests/api/validacoes.spec.ts",
+          "tests": [
+            {
+              "projectName": "chromium",
+              "results": [
+                {
+                  "status": "passed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "AUT-004-V2",
+          "file": "tests/api/validacoes.spec.ts",
+          "tests": [
+            {
+              "projectName": "chromium",
+              "results": [
+                {
+                  "status": "failed",
+                  "errors": [
+                    {
+                      "message": "Error: expect(response.status()).toBe(422)\\n\\nExpected: 422\\nReceived: 200"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests/ui/carrinho.spec.ts",
+      "specs": [
+        {
+          "title": "AUT-005",
+          "file": "tests/ui/carrinho.spec.ts",
+          "tests": [
+            {
+              "projectName": "chromium",
+              "results": [
+                {
+                  "status": "passed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "AUT-006-V1",
+          "file": "tests/ui/carrinho.spec.ts",
+          "tests": [
+            {
+              "projectName": "chromium",
+              "results": [
+                {
+                  "status": "passed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "AUT-006-V2",
+          "file": "tests/ui/carrinho.spec.ts",
+          "tests": [
+            {
+              "projectName": "chromium",
+              "results": [
+                {
+                  "status": "failed",
+                  "errors": [
+                    {
+                      "message": "Error: expect(received).toBe(expected)\\n\\nExpected: 0\\nReceived: 19.9"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests/api/pedidos.spec.ts",
+      "specs": [
+        {
+          "title": "AUT-008",
+          "file": "tests/api/pedidos.spec.ts",
+          "tests": [
+            {
+              "projectName": "chromium",
+              "results": [
+                {
+                  "status": "failed",
+                  "errors": [
+                    {
+                      "message": "Error: expect(response.status()).toBe(422)\\n\\nExpected: 422\\nReceived: 201"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

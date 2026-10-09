@@ -115,8 +115,8 @@ Comportamentos esperados, não bugs: carrinho independente por aba/navegador; pe
 
 Fora do escopo: carga, estresse, segurança, login, cadastro, pagamento online e consulta de pedidos. Não realizar essas verificações como parte da exploração.
 
-## Validação manual e prontidão
+## Validação instrumentada e prontidão
 
-Após autorização para execução, validar mensagens, recálculo, remoção/reaplicação, limite na vitrine e no carrinho, dados de cliente/CEP e confirmação, conforme MAN-001–MAN-012. A exploração deve buscar sequências adicionais, não duplicar os casos fixos como se fossem cobertura nova.
+MAN-001–MAN-012 e EXP-001–EXP-003 foram exercitados com interações instrumentadas no Chromium e chamadas HTTP, conforme [execucao-etapa5.md](execucao-etapa5.md). Esses registros não equivalem a uma execução manual independente pela candidata. A regressão automatizada de referência, iniciada em 09/10/2026, teve 20 testes: 15 aprovados e 5 reprovados, associados a BUG-001 e BUG-002. A revisão humana independente permanece necessária antes de apresentar as observações assistidas como experiência manual própria.
 
-AUT-001 e AUT-002 foram implementados e passaram na API em 08/10/2026; resultados e evidências estão em [execucao.md](execucao.md). AUT-003 e AUT-004 foram implementados e executados em 08/10/2026; três falhas reproduzidas estão em [execucao.md](execucao.md) e [bugs.md](bugs.md). O modo de desempate do arredondamento e a ausência de um segundo cupom válido permanecem limitações documentadas. A aprovação funcional completa depende das demais execuções e evidências.
+AUT-001 e AUT-002 passaram na API em 08/10/2026; resultados e evidências estão em [execucao.md](execucao.md). AUT-003 e AUT-004 foram executados na mesma data e suas divergências estão descritas em [execucao.md](execucao.md) e [bugs.md](bugs.md). O modo de desempate do arredondamento e a ausência de um segundo cupom válido permanecem limitações documentadas; as falhas conhecidas continuam abertas e não foram ajustadas nos valores esperados.

@@ -1,0 +1,61 @@
+{
+  "versao": 1,
+  "referencias": {
+    "plano": "docs/plano-de-testes.md",
+    "matriz": "docs/matriz-rastreabilidade.md",
+    "cenarios": "docs/cenarios-de-teste.md"
+  },
+  "revisaoHumana": [
+    {
+      "criterios": ["CA07"],
+      "motivo": "A matriz lista AUT-003 e AUT-006 por grupo. As variantes de AUT-006 existentes verificam frete grátis acima do limite e no limite exato; AUT-005 verifica frete pago abaixo do limite. O vínculo detalhado do índice segue essas assertions, mas a diferença em relação ao grupo da matriz precisa de conferência humana."
+    },
+    {
+      "criterios": ["CA09"],
+      "motivo": "A matriz lista AUT-006 por grupo, mas suas variantes não verificam diretamente desconto aplicado ao frete. O índice mantém as variantes AUT-001, AUT-003-V5 e AUT-005, cujas assertions verificam o valor do frete após desconto. Confirmar a diferença de granularidade com a matriz."
+    },
+    {
+      "criterios": ["CA10"],
+      "motivo": "Os AUT vinculados exercitam o limite pela API. A interface tem evidência manual documentada, mas não há automação UI do limite de cinco unidades; a cobertura automatizada de interface permanece ausente."
+    },
+    {
+      "criterios": ["CA08"],
+      "motivo": "AUT-003-V4 combina elegibilidade pelo subtotal antes do desconto com o limite exato de frete, e está associado ao BUG-001. AUT-003-V6 e AUT-006-V1 verificam subtotal acima do limite reduzido abaixo dele pelo desconto. Revisar a suficiência dessa cobertura combinada."
+    }
+  ],
+  "testes": [
+    { "id": "AUT-001", "arquivo": "tests/api/cupons.spec.ts" },
+    { "id": "AUT-002-V1", "arquivo": "tests/api/cupons.spec.ts" },
+    { "id": "AUT-002-V2", "arquivo": "tests/api/cupons.spec.ts" },
+    { "id": "AUT-002-V3", "arquivo": "tests/api/cupons.spec.ts" },
+    { "id": "AUT-002-V4", "arquivo": "tests/api/cupons.spec.ts" },
+    { "id": "AUT-002-V5", "arquivo": "tests/api/cupons.spec.ts" },
+    { "id": "AUT-003-V1", "arquivo": "tests/api/frete.spec.ts" },
+    { "id": "AUT-003-V2", "arquivo": "tests/api/frete.spec.ts" },
+    { "id": "AUT-003-V3", "arquivo": "tests/api/frete.spec.ts" },
+    { "id": "AUT-003-V4", "arquivo": "tests/api/frete.spec.ts" },
+    { "id": "AUT-003-V5", "arquivo": "tests/api/frete.spec.ts" },
+    { "id": "AUT-003-V6", "arquivo": "tests/api/frete.spec.ts" },
+    { "id": "AUT-004-V1", "arquivo": "tests/api/validacoes.spec.ts" },
+    { "id": "AUT-004-V2", "arquivo": "tests/api/validacoes.spec.ts" },
+    { "id": "AUT-005", "arquivo": "tests/ui/carrinho.spec.ts" },
+    { "id": "AUT-006-V1", "arquivo": "tests/ui/carrinho.spec.ts" },
+    { "id": "AUT-006-V2", "arquivo": "tests/ui/carrinho.spec.ts" },
+    { "id": "AUT-007-V1", "arquivo": "tests/api/cupons.spec.ts" },
+    { "id": "AUT-007-V2", "arquivo": "tests/api/cupons.spec.ts" },
+    { "id": "AUT-008", "arquivo": "tests/api/pedidos.spec.ts" }
+  ],
+  "criterios": [
+    { "id": "CA01", "testes": ["AUT-001", "AUT-005"] },
+    { "id": "CA02", "testes": ["AUT-002-V1", "AUT-002-V2", "AUT-002-V3", "AUT-002-V4", "AUT-002-V5"] },
+    { "id": "CA03", "testes": ["AUT-007-V1"] },
+    { "id": "CA04", "testes": ["AUT-007-V2"] },
+    { "id": "CA05", "testes": ["AUT-005"] },
+    { "id": "CA06", "testes": ["AUT-003-V2", "AUT-003-V3", "AUT-003-V4", "AUT-003-V6", "AUT-006-V1", "AUT-006-V2"] },
+    { "id": "CA07", "testes": ["AUT-003-V1", "AUT-003-V5", "AUT-005"] },
+    { "id": "CA08", "testes": ["AUT-003-V4", "AUT-003-V6", "AUT-006-V1"] },
+    { "id": "CA09", "testes": ["AUT-001", "AUT-003-V5", "AUT-005"] },
+    { "id": "CA10", "testes": ["AUT-004-V1", "AUT-004-V2", "AUT-008"] },
+    { "id": "CA11", "testes": ["AUT-001", "AUT-003-V1", "AUT-003-V2", "AUT-003-V3", "AUT-003-V4", "AUT-003-V5", "AUT-003-V6", "AUT-005", "AUT-006-V1", "AUT-006-V2"] }
+  ]
+}

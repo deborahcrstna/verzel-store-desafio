@@ -6,12 +6,12 @@ Avaliação funcional do card **VZS-142**, versão **2.3.0**, com testes de API 
 
 ## Resultado mais recente
 
-A regressão final foi executada no PowerShell externo em **08/10/2026**: **20 testes, 15 aprovados, 5 reprovados, 0 skipped e 0 flaky**, em 17,2 segundos. O relatório HTML local foi aberto e conferido visualmente, confirmando esses números. As cinco falhas são reproduções dos dois defeitos conhecidos, sem serem classificadas como erros da automação:
+A regressão de referência foi iniciada no PowerShell externo em **09/10/2026 às 01:04 (America/Manaus; 2026-10-09T05:04:18.393Z)**: **20 testes, 15 aprovados, 5 reprovados, 0 ignorados e 0 flaky**. O relatório HTML local foi conferido e o JSON registra os mesmos resultados. Os relatórios permanecem em diretórios locais ignorados pelo Git; não são distribuídos pelo repositório. As cinco falhas são comportamentos associados aos dois defeitos conhecidos, não erros da automação:
 
 - **BUG-001 — frete no limite exato de R$ 200,00:** AUT-003-V2, AUT-003-V4 e AUT-006-V2.
 - **BUG-002 — mais de cinco unidades do mesmo produto aceitas pela API:** AUT-004-V2 e AUT-008.
 
-AUT-007-V1/V2 e AUT-008 foram incluídos na suíte ampliada. A regressão mais recente ocorreu em 08/10/2026. Consulte [execução](docs/execucao.md) e [bugs](docs/bugs.md) para contexto e resultados históricos.
+AUT-007-V1/V2 e AUT-008 fazem parte da suíte ampliada. Uma execução anterior de 08/10/2026 também registrou 20 testes, 15 aprovados e 5 reprovados; ela permanece no histórico. A execução de 09/10/2026 é a referência final. Consulte [execução](docs/execucao.md) e [bugs](docs/bugs.md) para os detalhes.
 
 ## Objetivo e estratégia
 
@@ -62,6 +62,14 @@ README.md
 
 Scripts auxiliares locais de execução manual são ignorados pelo Git e não fazem parte da entrega pública.
 
+## AAR — Agente de Aceitação e Regressão
+
+O [AAR](agente-qa/README.md) combina análise determinística dos relatórios Playwright com um investigador que consulta ferramentas controladas de leitura. Há um adaptador opcional para a Responses API; uma tentativa real terminou em HTTP 429 antes da investigação e a integração não foi validada com sucesso. O projeto pode ser avaliado sem chave de API. A demonstração offline usa uma fixture sanitizada, sem chamar a loja ou a rede.
+
+### Demonstração offline para avaliadores
+
+Na raiz do repositório, execute `node agente-qa/demonstrar.cjs`. O comando roda o analisador determinístico sobre uma fixture versionada e inicia o investigador simulado. O resultado esperado é 20 testes, 15 aprovados e 5 reprovados, com três falhas compatíveis com BUG-001 e duas com BUG-002. O modo simulado não é uma investigação por IA real; as conclusões exigem revisão humana. Consulte [as limitações e os detalhes da demonstração](agente-qa/README.md#demonstração-offline-para-avaliadores).
+
 ## Instalação e execução
 
 Requer Node.js compatível com Playwright (>=20). Na raiz do projeto:
@@ -69,13 +77,13 @@ Requer Node.js compatível com Playwright (>=20). Na raiz do projeto:
 ```powershell
 npm ci
 npx playwright install chromium
-npx playwright test --list
+npm run test:list
 npm test
 ```
 
 Comandos úteis definidos em package.json: `npm run test:api`, `npm run test:ui`, `npm run test:headed` e `npm run test:report` (abre um relatório HTML já gerado).
 
-O relatório Playwright e os artefatos de falha ficam em `playwright-report/` e `test-results/`, ignorados pelo Git. O `playwright-report/index.html` local corresponde à regressão final de 08/10/2026 e foi conferido visualmente; ele não será incluído nem disponibilizado pelo repositório público. Relatórios e traces podem conter dados de requisições, respostas e capturas. Evidências versionáveis selecionadas e referenciadas ficam em `evidencias/api/` e `evidencias/interface/`. Os dados de cliente usados nos registros são fictícios. Conferir artefatos e configuração local antes de qualquer publicação. Os scripts manual-stage5.cjs e manual-ui-stage5.cjs gravam nomes de evidência fixos com a data da etapa; não os reexecute sem alterar o destino, pois isso pode sobrescrever arquivos históricos.
+Os relatórios Playwright e artefatos de falha ficam em `playwright-report/` e `test-results/`, ignorados pelo Git. O HTML e o JSON da regressão de referência de 09/10/2026 estão em uma pasta local exclusiva por execução; não fazem parte da entrega pública. Relatórios e traces podem conter dados de requisições, respostas e capturas. Evidências versionáveis selecionadas e referenciadas ficam em `evidencias/api/` e `evidencias/interface/`. Os dados de cliente usados nos registros são fictícios. Conferir artefatos e configuração local antes de qualquer publicação. Os scripts manual-stage5.cjs e manual-ui-stage5.cjs gravam nomes de evidência fixos com a data da etapa; não os reexecute sem alterar o destino, pois isso pode sobrescrever arquivos históricos.
 
 ## Documentação
 

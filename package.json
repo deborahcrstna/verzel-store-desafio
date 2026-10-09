@@ -4,12 +4,12 @@
     "description":  "",
     "main":  "index.js",
     "scripts":  {
-                    "test":  "playwright test",
-                    "test:api":  "playwright test tests/api",
-                    "test:ui":  "playwright test tests/ui",
-                    "test:headed":  "playwright test --headed",
-                    "test:list":  "playwright test --list",
-                    "test:report":  "playwright show-report"
+                    "test":  "node agente-qa/executar-playwright.cjs test",
+                    "test:api":  "node agente-qa/executar-playwright.cjs test tests/api",
+                    "test:ui":  "node agente-qa/executar-playwright.cjs test tests/ui",
+                    "test:headed":  "node agente-qa/executar-playwright.cjs test --headed",
+                    "test:list":  "playwright test --list --reporter=list",
+                    "test:report":  "node agente-qa/abrir-relatorio.cjs"
                 },
     "keywords":  [
 

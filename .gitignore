@@ -18,3 +18,5 @@ node_modules/
 !/evidencias/**
 /manual-stage5.cjs
 /manual-ui-stage5.cjs
+/agente-qa/analises/
+/%SystemDrive%/

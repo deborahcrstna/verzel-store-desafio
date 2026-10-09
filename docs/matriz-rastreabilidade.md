@@ -44,7 +44,7 @@ A suíte contém 20 testes em cinco arquivos de especificação (quatro API e um
 | AUT-007 V1–V2 | API | Cupom inexistente e expirado | tests/api/cupons.spec.ts |
 | AUT-008 | API | Limite de unidades no pedido | tests/api/pedidos.spec.ts |
 
-Na última regressão registrada: 20 testes, 15 passaram e 5 falharam. AUT-003-V2/V4, AUT-006-V2 e AUT-004-V2/AUT-008 reproduziram BUG-001 e BUG-002, respectivamente. Os códigos de saída e o histórico estão em [execucao.md](execucao.md).
+Na regressão de referência iniciada em 09/10/2026: 20 testes, 15 passaram e 5 falharam. AUT-003-V2/V4, AUT-006-V2 e AUT-004-V2/AUT-008 reproduziram BUG-001 e BUG-002, respectivamente. Os códigos de saída e o histórico estão em [execucao.md](execucao.md).
 
 ### Limites da cobertura
 

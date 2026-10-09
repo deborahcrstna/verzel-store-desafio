@@ -1,72 +1,47 @@
 # Uso de IA
 
-## Etapa 1 — Preparação em 08/10/2026
+## Participação das ferramentas
 
-O Codex foi usado como assistente para ler o pedido, inspecionar arquivos, consultar a documentação oficial, organizar a estrutura, preparar cenários/matriz e ajustar a configuração do Playwright.
+ChatGPT foi utilizado de forma significativa para estruturar prompts enviados ao Codex, orientar o planejamento, apoiar a interpretação de requisitos e resultados, discutir cenários e estratégias de teste e revisar decisões de documentação e apresentação. Codex apoiou a interpretação dos requisitos, a organização dos cenários e da rastreabilidade, a implementação e revisão dos testes, a produção e organização de documentação e evidências, a execução de atividades instrumentadas e a análise dos resultados.
 
-Contribuições:
-- Análise de CA01–CA11, dados fixos, regras de cliente e contratos HTTP.
-- Planejamento de seis automações, sem implementá-las.
-- Cálculo dos valores esperados dos exemplos e registro de lacunas.
-- Criação dos documentos iniciais e arquivos de teste sem testes artificiais.
-- Revisão da configuração do instalador, preservando dependências, lockfile e exemplo original.
-- Verificação técnica de carregamento/listagem da suíte, registrada separadamente em execucao.md.
+Os cenários, dados de teste e resultados esperados foram fundamentados nos critérios de aceitação CA01–CA11, nas regras de negócio, nos contratos HTTP e na documentação fornecida no desafio. ChatGPT e Codex apoiaram essa análise e a estruturação dos testes. Em determinadas etapas, a candidata também forneceu parâmetros e direcionamentos específicos, incluindo dados utilizados na implementação de AUT-003 e AUT-004. Os valores esperados foram confrontados com os requisitos, e as expectativas não foram alteradas para fazer passar testes que reproduzem defeitos conhecidos.
 
-A leitura da documentação utilizou a seção documental do JavaScript público que monta a página, pois a ferramenta de leitura web não acessou a página e não havia navegador conectado. O código funcional da loja não foi adotado como fonte de comportamento esperado.
+A leitura dos requisitos considerou visualmente os PDFs do desafio. Como a extração textual resultou vazia por serem documentos em imagem, foi utilizado um leitor de PDF para examiná-los. O código funcional da loja não foi usado como fonte dos resultados esperados.
 
-## ChatGPT e contribuições anteriores
+## Resultados automatizados
 
-Não há histórico suficiente nesta sessão para afirmar quais análises anteriores foram feitas com ChatGPT. A candidata deve complementar este registro com usos efetivos, incluindo prompts relevantes e alterações que aceitou ou corrigiu. O relato de que os testes iniciais passaram veio da candidata; não é resultado funcional verificado nesta etapa.
+Codex implementou e revisou a automação Playwright e apoiou a análise das respostas. A regressão mais recente documentada contém **20 testes: 15 aprovados e 5 reprovados**. AUT-003-V2, AUT-003-V4 e AUT-006-V2 reproduziram o comportamento registrado como BUG-001; AUT-004-V2 e AUT-008 reproduziram o comportamento registrado como BUG-002. AUT-007-V1 e AUT-007-V2 passaram. Os resultados e seus limites estão descritos em [execucao.md](execucao.md) e [bugs.md](bugs.md). Não foram relaxadas asserções nem alterados valores esperados para ocultar as falhas.
 
-## Validação humana
+## AAR — Agente de Aceitação e Regressão
 
-Pendente: revisão pela candidata das interpretações, cálculos, prioridades e cenários já confrontados pelo Codex com os PDFs; compreensão e execução futura dos testes; confirmação dos resultados e evidências.
+O AAR foi desenvolvido com apoio de ChatGPT e Codex em sua estruturação, implementação, revisão, testes isolados e documentação. Seu analisador determinístico interpreta relatórios Playwright e relaciona os testes a critérios de aceite e bugs documentados. O investigador usa ferramentas controladas de leitura e um orquestrador validado com modelos simulados.
 
-A geração/revisão por IA não equivale a validação humana nem a aprovação da aplicação. Não foram inventados bugs ou resultados. Não houve criação de pedidos, commits ou publicação.
+Foi implementado um adaptador opcional para a OpenAI Responses API. Houve uma tentativa de conexão em modo real com uma chave configurada temporariamente no PowerShell, mas a API respondeu HTTP 429 em contexto de ausência de créditos na conta. A investigação não chegou a consultar ferramentas nem produziu uma conclusão de IA; isso não valida o funcionamento da integração real. A demonstração reproduzível do AAR usa uma fixture sanitizada e o modo simulado, sem chave e sem rede. A suíte isolada mais recente do AAR teve **95 testes aprovados e 0 reprovados**; esse resultado não corresponde à regressão da Verzel Store. A regressão de referência da loja teve **20 testes: 15 aprovados e 5 reprovados**, associados a BUG-001 e BUG-002.
 
-## Modelo para próximas contribuições
+Os resultados foram acompanhados e revisados pela candidata. As implementações e as sessões manuais/exploratórias descritas acima foram realizadas com assistência do Codex; não são apresentadas como implementação autônoma ou execução manual independente da candidata. As conclusões do AAR são indicativas e exigem revisão humana.
 
-| Data | Ferramenta | Solicitação | Sugestão/alteração | Revisão humana e decisão | Evidência |
-| --- | --- | --- | --- | --- | --- |
-| A preencher | ChatGPT / Codex | Descrever | Descrever | Pendente / aceita / corrigida / rejeitada, com motivo | Link ou arquivo |
+## Atividades instrumentadas
 
+As sessões manuais e exploratórias registradas foram realizadas com auxílio do Codex, por interações instrumentadas no Chromium e chamadas HTTP; não correspondem a uma execução manual independente pela candidata. Conforme [execucao-etapa5.md](execucao-etapa5.md), MAN-001–MAN-010 e MAN-012 passaram, MAN-011 observou a aceitação indevida de seis unidades no endpoint `POST /api/pedidos`, e EXP-001 observou o comportamento de BUG-001. EXP-002 e EXP-003 não registraram divergência nova. As evidências citadas nesses registros são da execução assistida.
 
-## Etapa 2 — Revisão documental em 08/10/2026
+## Histórico das contribuições
 
-- Leitura visual das sete páginas de documentacao.pdf e cinco páginas de Teste tecnico QA Junior - Verzel.pdf. A extração textual resultou vazia porque os arquivos são imagens.
-- Renderização com leitor PDF instalado somente em pasta temporária; nenhuma dependência foi adicionada ao projeto.
-- Confronto dos 11 critérios, catálogo, contratos HTTP e limitações com todos os documentos de docs/.
-- Conferência aritmética local dos valores esperados, sem chamar a API, e enumeração de quantidades 0–5 para determinar os vizinhos monetários atingíveis do limiar.
-- Inclusão do planejamento exploratório e de normalização manual na UI; atualização das exigências de entrega e ambiguidades.
-- Conferência de rastreabilidade, links e manutenção de todos os cenários como NÃO EXECUTADO.
-- Nenhuma automação implementada ou executada, bug inventado, pedido criado, commit ou publicação realizado.
+### Preparação e revisão documental — 08/10/2026
 
-R2 permite IA e solicita explicar onde e como ela foi usada no formulário final. Este registro auxilia a candidata, mas não substitui sua revisão nem o preenchimento pessoal do formulário na etapa de entrega.
+Codex inspecionou o pedido e os arquivos do projeto, consultou a documentação do desafio, organizou a estrutura inicial e preparou o plano, os cenários, a matriz e a configuração do Playwright. Também revisou a configuração do instalador preservando dependências e lockfile, e verificou o carregamento/listagem da suíte. Foram analisados CA01–CA11, os dados e contratos documentados; calculados os valores esperados; e registradas lacunas e ambiguidades. Na revisão documental, foram conferidos os cálculos, enumeradas as combinações de quantidades de 0 a 5 e mantidos os cenários como NÃO EXECUTADO naquele momento. Na etapa 2, não houve automação funcional nem pedido de teste; a ausência de commit e publicação registrada refere-se somente àquela etapa.
 
+### Refinamento e implementação de API — 08/10/2026
 
-## Etapa 2.1 — Refinamento em 08/10/2026
+No refinamento, Codex apoiou a revisão das pré-condições, variantes, prioridades e evidências dos cenários, além de conferir os cálculos sem acessar a aplicação. Naquele ponto, ainda não havia execução funcional. O documento do desafio também solicita que a candidata explique o uso de IA no formulário de entrega; este registro auxilia, mas não substitui o preenchimento pessoal desse formulário.
 
-Codex apoiou a simplificação do README, a explicitação de modalidades/prioridades/evidências na matriz e a revisão das pré-condições e variantes dos cenários. Recalculou 15 conjuntos financeiros e enumerou todas as combinações de quantidades 0–5 do catálogo, sem acessar a aplicação. A descrição do subtotal acima de 200 foi simplificada; nenhum modo de arredondamento foi assumido. A revisão humana e a autorização para implementar continuam pendentes; não houve implementação ou execução funcional.
+Na etapa de cupons, Codex implementou AUT-001 e AUT-002 com o fixture `request`, executou esse arquivo e organizou os registros de requisição e resposta. Os seis casos passaram. Não foi executada criação de pedido nessa etapa; AUT-003–AUT-006 ficaram para etapas posteriores.
 
-## Etapa 3.1 — Cupons de API em 08/10/2026
+Na etapa de frete e quantidade, Codex implementou AUT-003 V1–V5 e AUT-004 V1–V2 usando, entre outros direcionamentos registrados, dados fornecidos pela candidata. Os casos foram executados sem alterar as expectativas. Três falhas observadas foram registradas como divergências da aplicação em `bugs.md`; as asserções passaram a apresentar os campos divergentes com clareza.
 
-Codex implementou AUT-001 e AUT-002 com o fixture request, executou somente esse arquivo e extraiu as seis requisições/respostas reais dos anexos do relatório. Atualizou execução, matriz e README. Os seis casos passaram; a candidata ainda deve revisar código e resultados. Nenhum pedido foi criado e AUT-003–AUT-006 permanecem para etapas posteriores.
+### Refatoração e ampliação da automação — 08/10/2026
 
-## Etapa 3.2 — Frete e limite de quantidade em 08/10/2026
+Codex refatorou os testes existentes preservando IDs, cenários e valores esperados, sem alterar a aplicação ou adicionar dependências. Depois implementou AUT-007-V1/V2, para cupons inexistente e expirado, e AUT-008, para seis unidades no endpoint `POST /api/pedidos`. A suíte chegou a 20 testes em cinco arquivos de especificação. Na regressão mais recente documentada, 15 passaram e 5 falharam: três reproduziram BUG-001 e dois reproduziram BUG-002. AUT-007-V1/V2 passaram. As falhas são comportamentos observados e documentados; não se atribui a elas uma causa interna não verificada.
 
-Codex conferiu o planejamento e os PDFs oficiais, implementou AUT-003 V1–V5 e AUT-004 V1–V2 com os dados indicados pela candidata, executou apenas os dois arquivos novos e preservou os anexos de requisição/resposta. As três falhas foram repetidas sem alterar expectativas; duas divergências confirmadas foram registradas em bugs.md. As asserções dos casos falhos passaram a relatar todos os campos divergentes, e a suíte delimitada foi executada com o código final. AUT-001/002 não foram modificados. A candidata deve revisar os resultados e as classificações antes das próximas etapas.
+### Execução assistida e consolidação documental — 08/10/2026
 
-
-## Etapas 3.3–3.4 — Refatoração e ampliação da automação em 08/10/2026
-
-Codex revisou e refatorou os testes existentes, mantendo IDs, cenários e valores esperados, sem alterar a aplicação ou adicionar dependências. A assistência incluiu simplificação de duplicação real, ajustes de legibilidade e assertions/mensagens, além de preservar anexos de execução existentes. Em seguida, Codex adicionou AUT-007-V1/V2 para cupons inexistente/expirado e AUT-008 para seis unidades no endpoint POST /api/pedidos. A suíte passou a conter 20 testes em cinco arquivos de especificação.
-
-A validação automatizada mais recente registrada teve 15 aprovações e cinco reprovações: AUT-003-V2/V4 e AUT-006-V2 manifestaram BUG-001; AUT-004-V2 e AUT-008 manifestaram BUG-002. AUT-007-V1/V2 passaram. Os resultados e limites de evidência estão em execucao.md. As asserções esperadas não foram relaxadas para ocultar defeitos.
-
-## Etapa 5 — Execução manual assistida e exploração em 08/10/2026
-
-As interações no Chromium e chamadas HTTP foram realizadas por Codex com instrumentação/scripts, conforme execucao-etapa5.md. MAN-001–010 e MAN-012 passaram, MAN-011 reproduziu BUG-002 no endpoint POST /api/pedidos e EXP-001 reproduziu BUG-001; EXP-002/003 não mostraram divergência nova. Essas atividades não devem ser descritas como execução independente por uma pessoa. As respostas MAN-001, MAN-002 e MAN-011 preservadas em evidencias/api são registros da execução assistida, não anexos produzidos pelos casos AUT-007/AUT-008.
-
-## Etapa 3 — Consolidação documental em 08/10/2026
-
-Codex atualizou README.md, matriz-rastreabilidade.md, cenarios-de-teste.md, execucao.md e bugs.md para reconciliar os resultados atuais com o histórico e os artefatos disponíveis, sem alterar testes, aplicação ou evidências. Também conferiu links locais e a presença de arquivos temporários/dados sensíveis. A candidata ainda precisa revisar o material e completar qualquer declaração pessoal de uso de IA exigida na entrega.
+Codex executou as interações instrumentadas no Chromium e chamadas HTTP registradas na etapa 5 e apoiou a consolidação de README, cenários, matriz, execução e bugs. Os resultados dessa atividade estão resumidos na seção anterior e detalhados em [execucao-etapa5.md](execucao-etapa5.md). Os pedidos aceitos nas chamadas de teste eram fictícios no ambiente de QA e, segundo os registros do projeto, não foram persistidos.

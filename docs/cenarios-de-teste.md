@@ -1,6 +1,6 @@
 # Cenários de teste
 
-Estado atual: a regressão automatizada mais recente teve 20 testes, 15 aprovados e 5 reprovados. AUT-007-V1/V2 passaram; AUT-008 reprovou pela aceitação de seis unidades (BUG-002). AUT-003-V2/V4 e AUT-006-V2 reproduzem BUG-001; AUT-004-V2 e AUT-008 reproduzem BUG-002. MAN-001–010 e MAN-012 passaram; MAN-011 passou com cinco unidades e falhou com seis. EXP-001 reproduziu BUG-001; EXP-002/003 não apontaram divergência nova. Registros e evidências em [execucao.md](execucao.md) e [execucao-etapa5.md](execucao-etapa5.md). Esperados revisados em 08/10/2026 contra documentacao.pdf (R1, pp. 1–7) e Teste tecnico QA Junior - Verzel.pdf (R2, pp. 1–5). Identificação e limites das fontes no [plano](plano-de-testes.md). Os blocos Gherkin são documentação Markdown; não há Cucumber.
+Estado atual: a regressão automatizada de referência, iniciada em 09/10/2026, teve 20 testes, 15 aprovados e 5 reprovados. AUT-007-V1/V2 passaram; AUT-008 reprovou pela aceitação de seis unidades (BUG-002). AUT-003-V2/V4 e AUT-006-V2 reproduzem BUG-001; AUT-004-V2 e AUT-008 reproduzem BUG-002. MAN-001–010 e MAN-012 passaram; MAN-011 passou com cinco unidades e falhou com seis. EXP-001 reproduziu BUG-001; EXP-002/003 não apontaram divergência nova. Registros e evidências em [execucao.md](execucao.md) e [execucao-etapa5.md](execucao-etapa5.md). Esperados revisados em 08/10/2026 contra documentacao.pdf (R1, pp. 1–7) e Teste tecnico QA Junior - Verzel.pdf (R2, pp. 1–5). Identificação e limites das fontes no [plano](plano-de-testes.md). Os blocos Gherkin são documentação Markdown; não há Cucumber.
 
 ## Pré-condições e procedimento comuns
 
@@ -141,7 +141,7 @@ As variantes são independentes. A interface apresenta frete zero como `Grátis`
 
 Natureza: Negativo; valor limite acima do máximo. Arquivo: tests/api/pedidos.spec.ts.
 
-Enviar POST /api/pedidos com cliente fictício válido e P005 ×6. Esperar HTTP 422, erro.codigo = QUANTIDADE_MAXIMA_EXCEDIDA e mensagem de erro não vazia, conforme CA10 e o contrato documentado. AUT-008 reprovou na última regressão: a API retornou HTTP 201 e aceitou as seis unidades, reproduzindo BUG-002. A evidência durável complementar é MAN-011 (duas execuções); o anexo temporário do teste fica em test-results/ e não é evidência versionada.
+Enviar POST /api/pedidos com cliente fictício válido e P005 ×6. Esperar HTTP 422, erro.codigo = QUANTIDADE_MAXIMA_EXCEDIDA e mensagem de erro não vazia, conforme CA10 e o contrato documentado. AUT-008 reprovou na regressão de referência: a API retornou HTTP 201 e aceitou as seis unidades, reproduzindo BUG-002. O anexo temporário da execução não está disponível no workspace atual; MAN-011 contém duas reproduções assistidas com evidências duráveis.
 
 ## Cenários complementares manuais
 
@@ -254,7 +254,7 @@ Em MAN-009, planejar quatro combinações independentes: sem cupom/com BEMVINDO1
 
 ## Sessões exploratórias planejadas
 
-Exigência de execução manual e exploratória: R2, p. 3. As sessões foram executadas com instrumentação por Codex; não representam avaliação humana independente nem novos testes automatizados. Resultados em execucao-etapa5.md.
+Exigência de execução manual e exploratória: R2, p. 3. EXP-001–EXP-003 foram executados com instrumentação por Codex e não representam avaliação humana independente nem novos testes automatizados; seus resultados estão em execucao-etapa5.md. EXP-004 é um registro separado de execução manual independente da candidata.
 
 ### EXP-001 — Recálculo e transições do carrinho (UI, P1)
 
@@ -270,5 +270,17 @@ Objetivo: alternar entradas válidas, normalizadas, inválidas e expiradas em ca
 
 Natureza: Exploratório; dados inválidos e recuperação. Regra adicional: cliente/CEP, R1 pp. 2–3 e 7.
 Objetivo: observar validação e recuperação de campos inválidos de cliente antes da confirmação. Usar os dados e partições de MAN-008, corrigindo um campo por vez, sem inferir mensagens não publicadas. A sessão registrada corrigiu entradas de cliente observando a UI, sem consulta posterior de pedido. Nenhuma divergência nova foi observada.
+
+### EXP-004 — CEP zerado aceito no checkout (UI, manual; MEL-001)
+
+**Responsável e modalidade:** candidata; execução manual independente, sem Codex ou Playwright neste cenário. Data e horário não informados.
+
+**Passos observados:** (1) Adicionar uma unidade de Camiseta Essencial (R$ 59,90), Calça Jeans Slim (R$ 139,90), Tênis Casual Urbano (R$ 189,90) e Boné Aba Curva (R$ 49,90), formando subtotal de R$ 439,60. (2) Aplicar BEMVINDO10. (3) Avançar à finalização da compra com os dados de cliente preenchidos. (4) Informar `00000-000` no campo CEP. (5) Clicar em **Confirmar pedido**.
+
+**Resultado observado:** a aplicação aceitou o CEP e apresentou o pedido `VZ-907297` como confirmado. O resumo mostrou subtotal R$ 439,60, desconto de R$ 43,96, frete grátis e total R$ 395,64.
+
+**Resultado esperado proposto:** caso o requisito de negócio exija validar a existência/entregabilidade do CEP, a confirmação deve ser impedida com indicação clara no campo. A exigência de existência do CEP não foi confirmada nos critérios CA01–CA11; tratar como sugestão de melhoria/possível lacuna, não como defeito confirmado. Registro relacionado: [MEL-001](bugs.md#mel-001--validação-de-existência-do-cep-no-checkout).
+
+**Evidências:** [checkout com CEP informado](../evidencias/interface/mel-001-checkout-cep-zerado.png) e [pedido confirmado](../evidencias/interface/mel-001-pedido-confirmado.png).
 
 Registro obrigatório por sessão: objetivo, responsável, data/fuso, duração real, dados/sequência efetivamente usados, esperado e observado, evidências, dúvidas, cenários derivados e bugs somente se reproduzidos. Exploração sem divergência observada não comprova cobertura integral dos critérios.
